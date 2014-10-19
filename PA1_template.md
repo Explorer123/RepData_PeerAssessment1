@@ -95,7 +95,7 @@ agg_sum
 hist(agg_sum$x,main=paste("Histogram of  total number of steps taken each day"),xlab=paste("Sum of steps each day"))
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figures/unnamed-chunk-2-1.png) 
 
 ```r
 agg_mean<-aggregate(a1$steps,list(dat=a1$date), FUN=mean, na.rm=TRUE)
@@ -246,7 +246,7 @@ agg_mean_ti<-aggregate(a1$steps,list(interval=a1$interval), FUN=mean, na.rm=TRUE
 plot(agg_mean_ti$interval,agg_mean_ti$x, xlab=paste("Time interval"),ylab=paste("Average number of steps across all days"), main="Time Series Plot", type="l")
 ```
 
-![plot of chunk plot](figure/plot-1.png) 
+![plot of chunk plot](figures/plot-1.png) 
 
 ```r
 max_steps<-agg_mean_ti$interval[which.max(agg_mean_ti$x)]
@@ -386,7 +386,7 @@ new_sum
 hist(new_sum$x,main=paste("#2 Histogram of  total number of steps taken each day"),xlab=paste("Sum of steps each day"))
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figures/unnamed-chunk-3-1.png) 
 
 ```r
 new_mean<-aggregate(a1_new$steps,list(dat=a1_new$date), FUN=mean)
@@ -554,4 +554,4 @@ avg_wd_we<-aggregate(a13$steps,list(interval=a13$interval,wknd=a13$wknd), FUN=me
 xyplot(avg_wd_we$x~avg_wd_we$interval|avg_wd_we$wknd, type="l", main="Average number of steps by weekday/weekend", xlab="number of intervals", ylab="Average number of steps")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figures/unnamed-chunk-4-1.png) 
