@@ -13,7 +13,7 @@ str(a1)
 -agg_mean: mean total number of steps taken per day  
 -agg_median:median total number of steps taken per day  
 
-```{r}
+```{r part1}
 agg_sum<-aggregate(a1$steps,list(dat=a1$date), FUN=sum, na.rm=TRUE)
 agg_sum
 
@@ -30,7 +30,7 @@ agg_median
 -Time Series Plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  
 -max_steps:Interval with Max steps 
 
-```{r plot, fig.width=5, fig.height=5}
+```{r part2, fig.width=5, fig.height=5}
 
 agg_mean_ti<-aggregate(a1$steps,list(interval=a1$interval), FUN=mean, na.rm=TRUE)
 plot(agg_mean_ti$interval,agg_mean_ti$x, xlab=paste("Time interval"),ylab=paste("Average number of steps across all days"), main="Time Series Plot", type="l")
@@ -57,7 +57,7 @@ Effect on mean: No difference
 Effect on median: Yes, those that showed as NA for orginal, new had a value. Others remained same  
 Effect on total number of steps: Yes, sum had higher values for the those dates that had NA before. Other dates that did not have  NA before had no effect in the new data frame  
 
-```{r}
+```{r part3}
 
 num_na<- sum(is.na(a1))
 num_na
@@ -90,7 +90,7 @@ new_median
 -panel plot to show average number of steps taken by weekend/weekday
 
 
-```{r, fig.width=7, fig.height=6}
+```{r part4, fig.width=7, fig.height=6}
 
 a13=a1_new
 a13$wknd<-ifelse(!weekdays(as.Date(a13$date)) %in% c("Saturday","Sunday"),"weekday","weekend")
